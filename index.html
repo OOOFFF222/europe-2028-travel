@@ -76,7 +76,7 @@ function transitLinkFor(origin, destination, city, dayLabel){
  const dest=cleanPlace(destination), from=cleanPlace(origin||'');
  if(!dest || generic.test(dest) || /점심|조식|저녁|식사 후보|짐 맡기기/.test(dest)) return '<span class="transit-muted">장소 확정 후 확인</span>';
  const destinationQuery=dest+', '+city+', Europe';
- const originQuery=from && !generic.test(from) && !/조식|점심|저녁|식사 후보|짐 맡기기/.test(from) ? from+', '+city+', Europe' : city+' 숙소 지역, '+city+', Europe';
+ const originCity=from ? cityFor(from,dayLabel,city) : city;\n const originQuery=from && !generic.test(from) && !/조식|점심|저녁|식사 후보|짐 맡기기/.test(from) ? from+', '+originCity+', Europe' : city+' 숙소 지역, '+city+', Europe';
  const url='https://www.google.com/maps/dir/?api=1&origin='+encodeURIComponent(originQuery)+'&destination='+encodeURIComponent(destinationQuery)+'&travelmode=transit';
  const longTrip=/출발|도착|공항|열차|기차|유로스타|인터라켄 →|로마 →|파리 →|베네치아 →|피렌체 →|밀라노 →|뮌헨 →/.test(destination+' '+dayLabel);
  const label=longTrip?'경로·열차 확인':'대중교통 경로 보기';
@@ -92,7 +92,7 @@ function showDay(key,i){
   let route='';
   if(kind==='tour'||kind==='travel'||kind==='stay') route=transitLinkFor(previous,label,city,d[0]);
   let tr=document.createElement('tr');tr.innerHTML=`<td>${time}</td><td>${label}</td><td><span class="type ${kind}">${kindLabel(kind)}</span></td><td>${route||'<span class="transit-muted">—</span>'}</td>`;body.appendChild(tr);
-  if(kind==='tour'||kind==='travel'||kind==='stay'){ if(!/출발|도착|공항|열차|기차|체크인/.test(label)) previous=label; currentCity=city; }
+  if((kind==='tour'||kind==='travel'||kind==='stay') && !/조식|점심|저녁|식사 후보|짐 맡기기|호텔에서 짐 찾기|휴식$|공항 체크인 목표|출국 수속/.test(label)){ previous=label; currentCity=city; }
  });
  document.getElementById('daynote-'+key).textContent='식사 후보와 숙소 후보는 지도에서 별도 색상 핀으로 표시됩니다. 이동일에는 일정 밀도를 낮추고 역·공항 도착 여유를 확보하세요.';
  if(!maps[key]){maps[key]=L.map('map-'+key).setView([46,10],4);L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:18,attribution:'© OpenStreetMap contributors'}).addTo(maps[key]);}
