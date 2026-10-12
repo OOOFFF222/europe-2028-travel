@@ -15,7 +15,7 @@ main{max-width:1200px;margin:auto;padding:18px}
 .dayselect{display:flex;gap:6px;overflow-x:auto;padding:4px 0 12px}.dayselect button{white-space:nowrap;flex-shrink:0}
 .tablewrap{overflow-x:auto;background:white;border-radius:10px;border:1px solid #dbe2e8;margin:12px 0 22px}
 table{border-collapse:collapse;width:100%;min-width:620px}th,td{padding:10px 12px;border-bottom:1px solid #e8edf1;text-align:left;vertical-align:top}th{background:#edf2f6;white-space:nowrap}td:first-child{font-weight:700;white-space:nowrap;width:90px}.type{font-size:.78rem;padding:2px 7px;border-radius:99px;white-space:nowrap}.type.tour{color:#0755a4;background:#e3f1ff}.type.food{color:#176c32;background:#e5f7e9}.type.stay{color:#765800;background:#fff4c7}.type.travel{color:#4f5965;background:#edf0f3}
-.small{font-size:.9rem;color:var(--muted)}.staybox{background:#fff;border-radius:10px;padding:14px;border:1px solid #dbe2e8;margin:12px 0}.staybox h3{margin:0 0 8px}.staybox ul{margin:8px 0;padding-left:20px}
+.small{font-size:.9rem;color:var(--muted)}.transit-link{display:inline-block;font-size:.88rem;font-weight:700;white-space:nowrap}.transit-muted{font-size:.82rem;color:var(--muted)}.transport-note{background:#eef6ff;border:1px solid #c9def4;border-radius:10px;padding:12px 14px;margin:10px 0 18px}.transport-note p{margin:4px 0}.staybox{background:#fff;border-radius:10px;padding:14px;border:1px solid #dbe2e8;margin:12px 0}.staybox h3{margin:0 0 8px}.staybox ul{margin:8px 0;padding-left:20px}
 a{color:#145ea8}.foot{font-size:.88rem;color:#5c6874;margin:18px 0}
 @media(min-width:900px){.mapwrap{grid-template-columns:1.05fr .95fr}.map{height:520px}}
 </style></head><body>
@@ -23,6 +23,7 @@ a{color:#145ea8}.foot{font-size:.88rem;color:#5c6874;margin:18px 0}
 <main>
 <div class="notice"><b>중요:</b> 2028년 출발일과 항공편이 미정이므로 기차 시간·요금, 입장 시간, 영업일은 확정 정보가 아닙니다. 시간표는 하루 동선을 검토하기 위한 계획 시각입니다. 특히 A안은 마지막 날 취리히 출국이므로 항공편에 맞춰 인터라켄 체류/이동을 조정해야 합니다. 지도는 인터넷 연결 시 표시됩니다.</div>
 <div class="legend"><span><i class="dot blue"></i>관광지</span><span><i class="dot green"></i>식사 후보</span><span><i class="dot yellow"></i>숙소 후보 지역</span></div>
+<div class="transport-note"><b>🚇 이동 경로 확인</b><p>각 일정의 <b>대중교통 경로 보기</b>를 누르면 해당 장소 사이의 지하철·버스·도보 환승 경로가 Google 지도에 열립니다. 출발일과 시간, 실제 숙소 주소를 넣어 노선·정류장·환승을 확인하세요.</p><p class="small">2028년 운행 노선과 시간표는 바뀔 수 있어 페이지에는 고정된 노선 번호 대신 최신 경로를 확인할 수 있는 링크를 넣었습니다. 도시 간 이동은 별도 열차 예매·시간표 확인이 필요합니다.</p></div>
 <div class="tabs" id="tabs"></div><div id="panels"></div>
 <div class="staybox"><h3>숙소 후보 지역 — 후기형 여행 가이드 교차 참고</h3>
 <ul>
@@ -46,7 +47,7 @@ const maps={};
 Object.entries(data).forEach(([key,opt],idx)=>{
  const b=document.createElement('button');b.textContent=opt.title;b.className=idx===0?'active':'';b.onclick=()=>activate(key);tabs.appendChild(b);
  const panel=document.createElement('section');panel.className='panel'+(idx===0?' active':'');panel.id='panel-'+key;
- panel.innerHTML=`<div class="route">${opt.route}</div><div class="dayselect" id="days-${key}"></div><div class="mapwrap"><div><div class="map" id="map-${key}"></div><p class="small">날짜별 핀을 누르면 장소명이 표시됩니다. 지도 타일은 온라인 연결이 필요합니다.</p></div><div><h3 id="heading-${key}"></h3><div class="tablewrap"><table><thead><tr><th>시간</th><th>일정</th><th>구분</th></tr></thead><tbody id="tbody-${key}"></tbody></table></div><p class="small" id="daynote-${key}"></p></div></div>`;
+ panel.innerHTML=`<div class="route">${opt.route}</div><div class="dayselect" id="days-${key}"></div><div class="mapwrap"><div><div class="map" id="map-${key}"></div><p class="small">날짜별 핀을 누르면 장소명이 표시됩니다. 지도 타일은 온라인 연결이 필요합니다.</p></div><div><h3 id="heading-${key}"></h3><div class="tablewrap"><table><thead><tr><th>시간</th><th>일정</th><th>구분</th><th>이동 경로</th></tr></thead><tbody id="tbody-${key}"></tbody></table></div><p class="small" id="daynote-${key}"></p></div></div>`;
  panels.appendChild(panel);
  const ds=panel.querySelector('#days-'+key);
  opt.days.forEach((d,i)=>{let db=document.createElement('button');db.textContent=(i+1)+'일차';db.className=i===0?'active':'';db.onclick=()=>showDay(key,i);ds.appendChild(db)});
@@ -54,11 +55,45 @@ Object.entries(data).forEach(([key,opt],idx)=>{
 function activate(key){[...tabs.children].forEach((b,i)=>b.classList.toggle('active',Object.keys(data)[i]===key));Object.keys(data).forEach(k=>document.getElementById('panel-'+k).classList.toggle('active',k===key));setTimeout(()=>{if(maps[key])maps[key].invalidateSize();},100);showDay(key,0);}
 function kindLabel(k){return {tour:'관광지',food:'식사 후보',stay:'숙소 후보',travel:'이동'}[k]||k}
 function iconFor(k){let c=k==='food'?'#2e9d55':k==='stay'?'#f5c542':k==='travel'?'#687583':'#1976d2';return L.divIcon({className:'',html:`<div style="width:17px;height:17px;border-radius:50%;background:${c};border:2px solid white;box-shadow:0 1px 4px #3338"></div>`,iconSize:[17,17],iconAnchor:[8,8]})}
+function cleanPlace(label){
+ return label.replace(/\([^)]*\)/g,'').replace(/·.*$/,'').trim();
+}
+function cityFor(label, dayLabel, previousCity){
+ const cities=['로마','피렌체','베네치아','밀라노','인터라켄','취리히','파리','뮌헨','런던','그린델발트','브리엔츠','베르사유'];
+ for(const c of cities) if(label.includes(c)) return c;
+ if(/바티칸|콜로세움|포로 로마노|베네치아 광장|스페인 광장|트레비|판테온|나보나|트라스테베레|테르미니|피우미치노/.test(label)) return '로마';
+ if(/산마르코|두칼레|리알토|무라노|부라노|산타루치아/.test(label)) return '베네치아';
+ if(/두오모|갈레리아/.test(label)) return dayLabel.includes('밀라노')?'밀라노':'피렌체';
+ if(/우피치|아카데미아|시뇨리아|베키오|미켈란젤로 광장|SMN/.test(label)) return '피렌체';
+ if(/융프라우|클라이네 샤이덱|하더쿨름|인터라켄 동역/.test(label)) return '인터라켄';
+ if(/에펠탑|트로카데로|루브르|튈르리|콩코르드|샹젤리제|개선문|베르사유|파리 북역|샤를드골|오페라 지구/.test(label)) return '파리';
+ if(/마리엔|노이슈반슈타인|뮌헨|중앙역/.test(label) && dayLabel.includes('뮌헨')) return '뮌헨';
+ if(/대영박물관|웨스트민스터|내셔널 갤러리|런던탑|타워브리지|보로우|더 샤드|그리니치|노팅힐|히스로|세인트판크라스|웨스트엔드/.test(label)) return '런던';
+ return previousCity || '로마';
+}
+function transitLinkFor(origin, destination, city, dayLabel){
+ const generic=/^(조식|점심|저녁|휴식|호텔 휴식|호텔에서 짐 찾기|본섬 복귀|인터라켄 복귀|파리 복귀·휴식|공항 체크인 목표|출국 수속|곤돌라 또는 휴식)$/;
+ const dest=cleanPlace(destination), from=cleanPlace(origin||'');
+ if(!dest || generic.test(dest) || /점심|조식|저녁|식사 후보|짐 맡기기/.test(dest)) return '<span class="transit-muted">장소 확정 후 확인</span>';
+ const destinationQuery=dest+', '+city+', Europe';
+ const originQuery=from && !generic.test(from) && !/조식|점심|저녁|식사 후보|짐 맡기기/.test(from) ? from+', '+city+', Europe' : city+' 숙소 지역, '+city+', Europe';
+ const url='https://www.google.com/maps/dir/?api=1&origin='+encodeURIComponent(originQuery)+'&destination='+encodeURIComponent(destinationQuery)+'&travelmode=transit';
+ const longTrip=/출발|도착|공항|열차|기차|유로스타|인터라켄 →|로마 →|파리 →|베네치아 →|피렌체 →|밀라노 →|뮌헨 →/.test(destination+' '+dayLabel);
+ const label=longTrip?'경로·열차 확인':'대중교통 경로 보기';
+ return '<a class="transit-link" href="'+url+'" target="_blank" rel="noopener">'+label+' ↗</a>';
+}
 function showDay(key,i){
  const opt=data[key], d=opt.days[i];document.getElementById('heading-'+key).textContent=`${i+1}일차 · ${d[0]}`;
  document.querySelectorAll(`#days-${key} button`).forEach((b,j)=>b.classList.toggle('active',j===i));
  const body=document.getElementById('tbody-'+key);body.innerHTML='';
- d[1].forEach(([time,label,kind])=>{let tr=document.createElement('tr');tr.innerHTML=`<td>${time}</td><td>${label}</td><td><span class="type ${kind}">${kindLabel(kind)}</span></td>`;body.appendChild(tr)});
+ let previous=''; let currentCity=cityFor(d[0],d[0],'로마');
+ d[1].forEach(([time,label,kind])=>{
+  const city=cityFor(label,d[0],currentCity);
+  let route='';
+  if(kind==='tour'||kind==='travel'||kind==='stay') route=transitLinkFor(previous,label,city,d[0]);
+  let tr=document.createElement('tr');tr.innerHTML=`<td>${time}</td><td>${label}</td><td><span class="type ${kind}">${kindLabel(kind)}</span></td><td>${route||'<span class="transit-muted">—</span>'}</td>`;body.appendChild(tr);
+  if(kind==='tour'||kind==='travel'||kind==='stay'){ if(!/출발|도착|공항|열차|기차|체크인/.test(label)) previous=label; currentCity=city; }
+ });
  document.getElementById('daynote-'+key).textContent='식사 후보와 숙소 후보는 지도에서 별도 색상 핀으로 표시됩니다. 이동일에는 일정 밀도를 낮추고 역·공항 도착 여유를 확보하세요.';
  if(!maps[key]){maps[key]=L.map('map-'+key).setView([46,10],4);L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:18,attribution:'© OpenStreetMap contributors'}).addTo(maps[key]);}
  const map=maps[key];if(map._pins)map._pins.forEach(p=>map.removeLayer(p));map._pins=[];
