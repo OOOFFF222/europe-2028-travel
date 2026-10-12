@@ -1,0 +1,109 @@
+{
+  "_meta": {
+    "note": "노선 번호와 역 이름은 2026년 기준입니다. 2028년에는 바뀔 수 있으니 각 행의 구글 지도 링크로 대조하세요. 지도에 그려지는 선은 승차역과 하차역을 잇는 직선이며 실제 선로 모양이 아닙니다.",
+    "modeColors": {
+      "metro": "#7b4fb5",
+      "rail": "#c2185b",
+      "bus": "#e07b39",
+      "tram": "#e07b39",
+      "boat": "#0f9bb5",
+      "funicular": "#8d6e63",
+      "walk": "#9aa5b1"
+    },
+    "modeLabels": {
+      "metro": "지하철",
+      "rail": "기차",
+      "bus": "버스",
+      "tram": "트램",
+      "boat": "배",
+      "funicular": "푸니쿨라",
+      "walk": "도보"
+    }
+  },
+
+  "cities": {
+
+    "로마": [
+      { "from": "피우미치노", "to": "테르미니", "mode": "rail", "line": "레오나르도 익스프레스", "board": "Fiumicino Aeroporto", "alight": "Roma Termini", "stops": 0, "min": 32, "note": "직통, 15분 간격", "boardAt": [41.7937, 12.2520], "alightAt": [41.9010, 12.5020] },
+      { "from": "테르미니", "to": "바티칸", "mode": "metro", "line": "메트로 A선", "board": "Termini", "alight": "Ottaviano", "stops": 7, "min": 12, "note": "하차 후 박물관 입구까지 도보 8분", "boardAt": [41.9010, 12.5020], "alightAt": [41.9145, 12.4556] },
+      { "from": "바티칸 박물관", "to": "성 베드로", "mode": "walk", "line": "", "board": "", "alight": "", "stops": 0, "min": 10, "note": "성벽을 끼고 돌아 광장으로", "boardAt": [41.9065, 12.4536], "alightAt": [41.9022, 12.4539] },
+      { "from": "성 베드로", "to": "산탄젤로", "mode": "walk", "line": "", "board": "", "alight": "", "stops": 0, "min": 10, "note": "콘칠리아치오네 대로 직진", "boardAt": [41.9022, 12.4539], "alightAt": [41.9031, 12.4663] },
+      { "from": "테르미니", "to": "콜로세움", "mode": "metro", "line": "메트로 B선", "board": "Termini", "alight": "Colosseo", "stops": 2, "min": 4, "note": "하차하면 바로 앞이 콜로세움", "boardAt": [41.9010, 12.5020], "alightAt": [41.8902, 12.4925] },
+      { "from": "콜로세움", "to": "포로 로마노", "mode": "walk", "line": "", "board": "", "alight": "", "stops": 0, "min": 3, "note": "통합권 같은 입구", "boardAt": [41.8902, 12.4922], "alightAt": [41.8925, 12.4853] },
+      { "from": "포로 로마노", "to": "베네치아 광장", "mode": "walk", "line": "", "board": "", "alight": "", "stops": 0, "min": 8, "note": "완만한 내리막", "boardAt": [41.8925, 12.4853], "alightAt": [41.8956, 12.4823] },
+      { "from": "테르미니", "to": "스페인 광장", "mode": "metro", "line": "메트로 A선", "board": "Termini", "alight": "Spagna", "stops": 3, "min": 6, "note": "역 출구가 광장과 바로 연결", "boardAt": [41.9010, 12.5020], "alightAt": [41.9058, 12.4823] },
+      { "from": "스페인 광장", "to": "트레비", "mode": "walk", "line": "", "board": "", "alight": "", "stops": 0, "min": 10, "note": "평지", "boardAt": [41.9060, 12.4828], "alightAt": [41.9009, 12.4833] },
+      { "from": "트레비", "to": "판테온", "mode": "walk", "line": "", "board": "", "alight": "", "stops": 0, "min": 8, "note": "골목길", "boardAt": [41.9009, 12.4833], "alightAt": [41.8986, 12.4769] },
+      { "from": "판테온", "to": "나보나", "mode": "walk", "line": "", "board": "", "alight": "", "stops": 0, "min": 5, "note": "평지", "boardAt": [41.8986, 12.4769], "alightAt": [41.8992, 12.4731] },
+      { "from": "베네치아 광장", "to": "트라스테베레", "mode": "tram", "line": "트램 8번", "board": "Venezia", "alight": "Belli", "stops": 3, "min": 8, "note": "걸으면 25분, 트램이 편함", "boardAt": [41.8956, 12.4805], "alightAt": [41.8892, 12.4730] }
+    ],
+
+    "피렌체": [
+      { "from": "SMN", "to": "두오모", "mode": "walk", "line": "", "board": "", "alight": "", "stops": 0, "min": 10, "note": "평지, 캐리어 끌어도 무리 없음", "boardAt": [43.7765, 11.2478], "alightAt": [43.7731, 11.2560] },
+      { "from": "두오모", "to": "시뇨리아", "mode": "walk", "line": "", "board": "", "alight": "", "stops": 0, "min": 5, "note": "칼차이우올리 거리 직진", "boardAt": [43.7731, 11.2560], "alightAt": [43.7696, 11.2558] },
+      { "from": "시뇨리아", "to": "우피치", "mode": "walk", "line": "", "board": "", "alight": "", "stops": 0, "min": 2, "note": "광장 바로 옆", "boardAt": [43.7696, 11.2558], "alightAt": [43.7677, 11.2553] },
+      { "from": "우피치", "to": "베키오 다리", "mode": "walk", "line": "", "board": "", "alight": "", "stops": 0, "min": 4, "note": "강변 따라", "boardAt": [43.7677, 11.2553], "alightAt": [43.7679, 11.2531] },
+      { "from": "두오모", "to": "아카데미아", "mode": "walk", "line": "", "board": "", "alight": "", "stops": 0, "min": 7, "note": "평지", "boardAt": [43.7731, 11.2560], "alightAt": [43.7769, 11.2588] },
+      { "from": "시뇨리아", "to": "미켈란젤로 광장", "mode": "bus", "line": "버스 12번 또는 13번", "board": "Ferrucci", "alight": "Piazzale Michelangelo", "stops": 6, "min": 15, "note": "걸으면 계단 오르막, 버스를 꼭 쓰세요", "boardAt": [43.7622, 11.2697], "alightAt": [43.7629, 11.2650] }
+    ],
+
+    "베네치아": [
+      { "from": "산타루치아", "to": "산마르코", "mode": "boat", "line": "바포레토 1번 또는 2번", "board": "Ferrovia", "alight": "San Marco Vallaresso", "stops": 6, "min": 35, "note": "2번이 급행. 대운하 전경이 보임", "boardAt": [45.4408, 12.3215], "alightAt": [45.4330, 12.3380] },
+      { "from": "산마르코", "to": "두칼레", "mode": "walk", "line": "", "board": "", "alight": "", "stops": 0, "min": 2, "note": "광장 바로 옆", "boardAt": [45.4345, 12.3397], "alightAt": [45.4337, 12.3404] },
+      { "from": "두칼레", "to": "리알토", "mode": "walk", "line": "", "board": "", "alight": "", "stops": 0, "min": 12, "note": "골목과 작은 다리 여러 개", "boardAt": [45.4337, 12.3404], "alightAt": [45.4380, 12.3359] },
+      { "from": "산마르코", "to": "무라노", "mode": "boat", "line": "바포레토 4.1번 또는 12번", "board": "San Zaccaria", "alight": "Murano Colonna", "stops": 5, "min": 40, "note": "폰다멘테 노베 경유편이 더 빠를 수 있음", "boardAt": [45.4335, 12.3435], "alightAt": [45.4584, 12.3560] },
+      { "from": "무라노", "to": "부라노", "mode": "boat", "line": "바포레토 12번", "board": "Murano Faro", "alight": "Burano", "stops": 2, "min": 30, "note": "배차 간격이 길어 시간표 확인 필요", "boardAt": [45.4584, 12.3560], "alightAt": [45.4853, 12.4167] },
+      { "from": "부라노", "to": "산타루치아", "mode": "boat", "line": "바포레토 12번 후 환승", "board": "Burano", "alight": "Ferrovia", "stops": 0, "min": 70, "note": "폰다멘테 노베에서 4.2번으로 환승", "boardAt": [45.4853, 12.4167], "alightAt": [45.4408, 12.3215] }
+    ],
+
+    "밀라노": [
+      { "from": "중앙역", "to": "말펜사", "mode": "rail", "line": "말펜사 익스프레스", "board": "Milano Centrale", "alight": "Malpensa T1", "stops": 0, "min": 52, "note": "30분 간격", "boardAt": [45.4862, 9.2045], "alightAt": [45.6283, 8.7128] },
+      { "from": "중앙역", "to": "두오모", "mode": "metro", "line": "메트로 M3 노란선", "board": "Centrale FS", "alight": "Duomo", "stops": 4, "min": 8, "note": "하차하면 바로 두오모 광장", "boardAt": [45.4862, 9.2045], "alightAt": [45.4642, 9.1900] },
+      { "from": "두오모", "to": "갈레리아", "mode": "walk", "line": "", "board": "", "alight": "", "stops": 0, "min": 2, "note": "두오모 광장 북쪽 입구", "boardAt": [45.4642, 9.1919], "alightAt": [45.4657, 9.1900] },
+      { "from": "두오모", "to": "최후의 만찬", "mode": "metro", "line": "메트로 M1 빨간선", "board": "Duomo", "alight": "Conciliazione", "stops": 4, "min": 9, "note": "하차 후 도보 6분", "boardAt": [45.4642, 9.1900], "alightAt": [45.4664, 9.1639] },
+      { "from": "두오모", "to": "스포르체스코", "mode": "walk", "line": "", "board": "", "alight": "", "stops": 0, "min": 13, "note": "단테 거리 보행자 구간", "boardAt": [45.4642, 9.1919], "alightAt": [45.4706, 9.1795] }
+    ],
+
+    "뮌헨": [
+      { "from": "뮌헨 공항", "to": "중앙역", "mode": "rail", "line": "S반 S1 또는 S8", "board": "München Flughafen", "alight": "Hauptbahnhof", "stops": 0, "min": 45, "note": "10분 간격, S8이 마리엔 광장도 경유", "boardAt": [48.3538, 11.7861], "alightAt": [48.1402, 11.5586] },
+      { "from": "중앙역", "to": "마리엔", "mode": "rail", "line": "S반 전 노선", "board": "Hauptbahnhof", "alight": "Marienplatz", "stops": 2, "min": 4, "note": "지하 승강장에서 승차", "boardAt": [48.1402, 11.5586], "alightAt": [48.1374, 11.5755] },
+      { "from": "마리엔", "to": "호프브로이", "mode": "walk", "line": "", "board": "", "alight": "", "stops": 0, "min": 5, "note": "평지 골목", "boardAt": [48.1374, 11.5755], "alightAt": [48.1377, 11.5799] },
+      { "from": "마리엔", "to": "영국정원", "mode": "metro", "line": "U반 U3 또는 U6", "board": "Marienplatz", "alight": "Universität", "stops": 3, "min": 6, "note": "하차 후 중국탑까지 도보 15분", "boardAt": [48.1374, 11.5755], "alightAt": [48.1508, 11.5810] },
+      { "from": "중앙역", "to": "노이슈반슈타인", "mode": "rail", "line": "기차 후 버스 73번 또는 78번", "board": "München Hbf", "alight": "Hohenschwangau", "stops": 0, "min": 150, "note": "퓌센까지 기차 2시간, 버스 10분. 바이에른 티켓이 유리", "boardAt": [48.1402, 11.5586], "alightAt": [47.5576, 10.7498] }
+    ],
+
+    "인터라켄": [
+      { "from": "인터라켄 동역", "to": "융프라우요흐", "mode": "rail", "line": "BOB 후 WAB 후 JB", "board": "Interlaken Ost", "alight": "Jungfraujoch", "stops": 0, "min": 150, "note": "라우터브루넨과 클라이네 샤이덱에서 두 번 환승. 대부분 터널 구간", "boardAt": [46.6900, 7.8680], "alightAt": [46.5475, 7.9850] },
+      { "from": "인터라켄 동역", "to": "그린델발트", "mode": "rail", "line": "BOB 직통", "board": "Interlaken Ost", "alight": "Grindelwald", "stops": 0, "min": 35, "note": "30분 간격", "boardAt": [46.6900, 7.8680], "alightAt": [46.6244, 8.0414] },
+      { "from": "인터라켄 동역", "to": "하더쿨름", "mode": "funicular", "line": "하더쿨름 푸니쿨라", "board": "Harderbahn 하부역", "alight": "Harder Kulm", "stops": 0, "min": 10, "note": "동역에서 하부역까지 도보 10분", "boardAt": [46.6908, 7.8648], "alightAt": [46.6964, 7.8580] },
+      { "from": "인터라켄 동역", "to": "브리엔츠", "mode": "boat", "line": "브리엔츠 호수 유람선", "board": "Interlaken Ost 선착장", "alight": "Brienz", "stops": 4, "min": 75, "note": "동역 바로 뒤가 선착장", "boardAt": [46.6895, 7.8700], "alightAt": [46.7540, 8.0380] },
+      { "from": "클라이네 샤이덱", "to": "인터라켄 동역", "mode": "rail", "line": "WAB 후 BOB", "board": "Kleine Scheidegg", "alight": "Interlaken Ost", "stops": 0, "min": 90, "note": "라우터브루넨 또는 그린델발트 경유 선택 가능", "boardAt": [46.5857, 7.9617], "alightAt": [46.6900, 7.8680] }
+    ],
+
+    "파리": [
+      { "from": "샤를드골", "to": "파리 시내", "mode": "rail", "line": "RER B선", "board": "Aéroport CDG 2", "alight": "Châtelet-Les Halles", "stops": 5, "min": 35, "note": "북역에서 내리면 한 정거장 빠름", "boardAt": [49.0048, 2.5712], "alightAt": [48.8620, 2.3470] },
+      { "from": "숙소", "to": "에펠탑", "mode": "metro", "line": "메트로 6호선", "board": "환승역에서 6호선", "alight": "Bir-Hakeim", "stops": 0, "min": 20, "note": "RER C선 Champ de Mars 하차도 가능", "boardAt": [48.8719, 2.3315], "alightAt": [48.8539, 2.2895] },
+      { "from": "에펠탑", "to": "트로카데로", "mode": "metro", "line": "메트로 6호선", "board": "Bir-Hakeim", "alight": "Trocadéro", "stops": 2, "min": 5, "note": "걸으면 다리를 건너 20분", "boardAt": [48.8539, 2.2895], "alightAt": [48.8631, 2.2874] },
+      { "from": "숙소", "to": "루브르", "mode": "metro", "line": "메트로 1호선 또는 7호선", "board": "환승역", "alight": "Palais Royal-Musée du Louvre", "stops": 0, "min": 15, "note": "역에서 지하로 연결", "boardAt": [48.8719, 2.3315], "alightAt": [48.8629, 2.3365] },
+      { "from": "루브르", "to": "콩코르드", "mode": "walk", "line": "", "board": "", "alight": "", "stops": 0, "min": 15, "note": "튈르리 정원 통과", "boardAt": [48.8606, 2.3376], "alightAt": [48.8656, 2.3212] },
+      { "from": "콩코르드", "to": "개선문", "mode": "metro", "line": "메트로 1호선", "board": "Concorde", "alight": "Charles de Gaulle-Étoile", "stops": 4, "min": 8, "note": "샹젤리제를 걸으면 35분", "boardAt": [48.8656, 2.3212], "alightAt": [48.8738, 2.2950] },
+      { "from": "숙소", "to": "베르사유", "mode": "rail", "line": "RER C선", "board": "Invalides 또는 Champ de Mars", "alight": "Versailles Château Rive Gauche", "stops": 0, "min": 40, "note": "하차 후 궁전까지 도보 10분", "boardAt": [48.8606, 2.3140], "alightAt": [48.7953, 2.1301] },
+      { "from": "숙소", "to": "몽마르트", "mode": "metro", "line": "메트로 2호선", "board": "환승역", "alight": "Anvers", "stops": 0, "min": 15, "note": "하차 후 푸니쿨라로 언덕 오름", "boardAt": [48.8719, 2.3315], "alightAt": [48.8828, 2.3441] },
+      { "from": "파리 북역", "to": "런던", "mode": "rail", "line": "유로스타", "board": "Paris Gare du Nord", "alight": "London St Pancras", "stops": 0, "min": 135, "note": "출발 60분 전 도착 권장, 출입국 심사 있음", "boardAt": [48.8809, 2.3553], "alightAt": [51.5319, -0.1263] }
+    ],
+
+    "런던": [
+      { "from": "히스로", "to": "패딩턴", "mode": "rail", "line": "히스로 익스프레스", "board": "Heathrow T2-3", "alight": "Paddington", "stops": 0, "min": 15, "note": "엘리자베스선은 30분, 요금이 쌈", "boardAt": [51.4712, -0.4525], "alightAt": [51.5154, -0.1755] },
+      { "from": "히스로", "to": "시내", "mode": "metro", "line": "튜브 피카딜리선", "board": "Heathrow T2-3", "alight": "Piccadilly Circus", "stops": 0, "min": 50, "note": "가장 싸지만 느림. 캐리어 있으면 비추천", "boardAt": [51.4712, -0.4525], "alightAt": [51.5100, -0.1340] },
+      { "from": "숙소", "to": "대영박물관", "mode": "metro", "line": "튜브 센트럴선 또는 노던선", "board": "환승역", "alight": "Tottenham Court Road", "stops": 0, "min": 15, "note": "하차 후 도보 7분. 러셀 스퀘어역도 가까움", "boardAt": [51.5154, -0.1755], "alightAt": [51.5165, -0.1308] },
+      { "from": "숙소", "to": "웨스트민스터", "mode": "metro", "line": "튜브 디스트릭트선 또는 서클선", "board": "환승역", "alight": "Westminster", "stops": 0, "min": 15, "note": "하차하면 바로 빅벤", "boardAt": [51.5154, -0.1755], "alightAt": [51.5010, -0.1248] },
+      { "from": "웨스트민스터", "to": "버킹엄", "mode": "walk", "line": "", "board": "", "alight": "", "stops": 0, "min": 12, "note": "세인트제임스 공원 통과", "boardAt": [51.5010, -0.1248], "alightAt": [51.5014, -0.1419] },
+      { "from": "숙소", "to": "런던탑", "mode": "metro", "line": "튜브 디스트릭트선 또는 서클선", "board": "환승역", "alight": "Tower Hill", "stops": 0, "min": 20, "note": "하차 후 도보 5분", "boardAt": [51.5154, -0.1755], "alightAt": [51.5098, -0.0766] },
+      { "from": "런던탑", "to": "보로우", "mode": "walk", "line": "", "board": "", "alight": "", "stops": 0, "min": 20, "note": "타워브리지를 건너 강변 산책", "boardAt": [51.5081, -0.0759], "alightAt": [51.5055, -0.0910] },
+      { "from": "보로우", "to": "더 샤드", "mode": "walk", "line": "", "board": "", "alight": "", "stops": 0, "min": 5, "note": "런던브리지역 바로 위", "boardAt": [51.5055, -0.0910], "alightAt": [51.5045, -0.0865] },
+      { "from": "숙소", "to": "그리니치", "mode": "rail", "line": "DLR", "board": "Bank 또는 Tower Gateway", "alight": "Cutty Sark", "stops": 0, "min": 30, "note": "템스강 고속보트로 가도 좋음", "boardAt": [51.5133, -0.0886], "alightAt": [51.4817, -0.0096] },
+      { "from": "숙소", "to": "노팅힐", "mode": "metro", "line": "튜브 센트럴선 또는 서클선", "board": "환승역", "alight": "Notting Hill Gate", "stops": 0, "min": 12, "note": "포토벨로 마켓까지 도보 8분", "boardAt": [51.5154, -0.1755], "alightAt": [51.5094, -0.1967] }
+    ]
+
+  }
+}
